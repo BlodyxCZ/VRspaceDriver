@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://c437xi6oiak2c"]
+[gd_scene load_steps=13 format=3 uid="uid://c437xi6oiak2c"]
 
 [ext_resource type="Texture2D" uid="uid://ca5ftjvactgl7" path="res://Assets/Textures/nightsky.jpg" id="1_3bv7v"]
 [ext_resource type="Shader" path="res://Scenes/TEST/test.gdshader" id="1_a0jyl"]
+[ext_resource type="PackedScene" uid="uid://cqg0v7vsocynt" path="res://Scenes/Player/player.tscn" id="3_6h4ul"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gch8l"]
 panorama = ExtResource("1_3bv7v")
@@ -22,13 +23,13 @@ render_priority = 0
 next_pass = SubResource("StandardMaterial3D_6cceo")
 shader = ExtResource("1_a0jyl")
 shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_width = 3.0
+shader_parameter/outline_width = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_qrjvk"]
 material = SubResource("ShaderMaterial_irdxf")
 
 [sub_resource type="BoxMesh" id="BoxMesh_janc8"]
-size = Vector3(5, 0.2, 5)
+size = Vector3(100, 0.2, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxxrs"]
 albedo_color = Color(0, 0.466667, 0.0823529, 1)
@@ -38,7 +39,7 @@ render_priority = 0
 next_pass = SubResource("StandardMaterial3D_vxxrs")
 shader = ExtResource("1_a0jyl")
 shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_width = 3.0
+shader_parameter/outline_width = 1.0
 
 [node name="TEST" type="Node3D"]
 
@@ -55,5 +56,9 @@ mesh = SubResource("SphereMesh_qrjvk")
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.85405, 0)
+use_collision = true
 mesh = SubResource("BoxMesh_janc8")
 material = SubResource("ShaderMaterial_2l7yx")
+
+[node name="Player" parent="." instance=ExtResource("3_6h4ul")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01561, 0.616772, 0.739826)

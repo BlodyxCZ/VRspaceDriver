@@ -11,7 +11,7 @@ render_priority = 0
 next_pass = SubResource("StandardMaterial3D_t3hxp")
 shader = ExtResource("1_oa8xa")
 shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_width = 5.0
+shader_parameter/outline_width = 1.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ogh04"]
 material = SubResource("ShaderMaterial_u66mj")
@@ -28,4 +28,6 @@ mesh = SubResource("CapsuleMesh_ogh04")
 shape = SubResource("CapsuleShape3D_iwc1w")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.386217)
+current = true
+near = 0.112

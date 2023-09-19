@@ -28,7 +28,7 @@ func _handle_movement(delta):
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = move_toward(velocity.x, direction.x * SPEED, ACC)
-		velocity.z = move_toward(velocity.x, direction.z * SPEED, ACC)
+		velocity.z = move_toward(velocity.z, direction.z * SPEED, ACC)
 	else:
 		velocity.x = move_toward(velocity.x, 0, DEC)
 		velocity.z = move_toward(velocity.z, 0, DEC)
