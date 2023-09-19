@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqg0v7vsocynt"]
+
+[ext_resource type="Shader" path="res://Scenes/TEST/test.gdshader" id="1_oa8xa"]
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_y80re"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3hxp"]
+albedo_color = Color(0.2, 0.226667, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u66mj"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_t3hxp")
+shader = ExtResource("1_oa8xa")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 5.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ogh04"]
+material = SubResource("ShaderMaterial_u66mj")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iwc1w"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_y80re")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_ogh04")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_iwc1w")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
