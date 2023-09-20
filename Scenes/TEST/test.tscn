@@ -61,4 +61,4 @@ mesh = SubResource("BoxMesh_janc8")
 material = SubResource("ShaderMaterial_2l7yx")
 
 [node name="Player" parent="." instance=ExtResource("3_6h4ul")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01561, 0.616772, 0.739826)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0510746, 0.616772, 2.60999)
