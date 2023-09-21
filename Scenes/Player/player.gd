@@ -21,7 +21,10 @@ func _physics_process(delta) -> void:
 	_handle_movement(delta)
 	
 	if Input.is_action_just_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		if !Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _handle_movement(delta) -> void:
@@ -48,7 +51,7 @@ func _handle_movement(delta) -> void:
 
 
 func _input(event) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		camera.rotation_degrees.y = wrapf(camera.rotation_degrees.y, 0.0, 360.0)
 		camera.rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		
